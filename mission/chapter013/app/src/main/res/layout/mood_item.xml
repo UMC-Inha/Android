@@ -17,7 +17,8 @@
 
     <TextView
         app:layout_constraintTop_toTopOf="@id/mood_icon"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/mood_icon"
+        app:layout_constraintBottom_toBottomOf="@id/mood_icon"
         android:id="@+id/mood_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
