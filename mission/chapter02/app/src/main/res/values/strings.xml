@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">chapter01</string>
+    <string name="back">뒤로가기</string>
+    <string name="hone">홈</string>
+    <string name="user">유저</string>
+    <string name="except">나머지</string>
+</resources>
