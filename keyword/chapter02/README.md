@@ -61,3 +61,93 @@
             Toast.makeText(context, "Result: $result", Toast.LENGTH_SHORT).show()
         }
         ```
+        
+| **2주차** | 함수와 람다 | 함수 선언 및 구조, 고차 함수와 람다, 익명 함수, 함수형 프로그래밍 (`map`, `filter`, `reduce`) |
+| --- | --- | --- |
+
+```kotlin
+// 기본 함수 선언
+fun sum(a: Int, b: Int): Int {
+    return a + b
+}
+```
+
+```kotlin
+// 단일 표현식 함수 / ES6 처럼 생략 가능하다 
+fun sum(a: Int, b: Int) = a + b
+```
+
+```kotlin
+// 매개변수 기본값 설정이 가능하다 
+fun greet(name: String = "Guest"): String {
+    return "Hello, $name!"
+}
+
+fun main() {
+    println(greet())         // Hello, Guest!
+    println(greet("John"))   // Hello, John!
+}
+```
+
+```kotlin
+// 람다 함수 예시
+val sumLambda: (Int, Int) -> Int = { a, b -> a + b }
+
+fun main() {
+    println(sumLambda(3, 5))  // 8
+}
+```
+
+람다라는 게 즉 매개변수를 리턴식에서 지정해줘도 되는 즉 간편식의 일종임 
+
+즉코드의 간겨로하와 가독성을 위해 사용 
+
+매개변수를 두번 안써줘도 됨 
+
+```kotlin
+// 고차 함수 예시
+fun calculate(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+    return operation(a, b)
+}
+
+fun main() {
+    val result = calculate(4, 7) { x, y -> x + y }
+    println(result)  // 11
+}
+```
+
+고차함수 - 다른함수를 매개변수로 받거나 함수를 반환하는 함수를 의미 
+
+꼭 익명함수를 쓰는 것은 아님 
+
+여기서 calculate 는 고차함수임 
+
+람다식으로 { x + y } 라는 함수를 보내준거고 
+
+operation에서 이를 받아서 즉 operaion이 sum 함수처럼 작동을 하게되고 이를 반환해준다 
+
+단 한번 실행된다 
+
+result 초기화 해줄떄 11로 초기화 되고 그 뒤로는 값이 저장되어 print해줘도 11 나온다 
+
+익명함수 
+
+```kotlin
+val multiply = fun(a: Int, b: Int): Int {
+    return a * b
+}
+
+fun main() {
+    println(multiply(4, 5))  // 20
+}
+```
+
+익명함수란 
+
+정의와 동시에 사용 되거나 다른 함수의 인수로 전달되는 함수임 
+
+고차함수를 가능하게 하는 것도 익명함수가 존재하기 때문임 
+
+즉 함수를 변수처럼 사용 
+
+익명함수 쓰면 함수 째로 넘겨주니까 매개변수 선언을 미리 해주고 넘겨줄 필요가 없어서 불필요한 함수 선언이 반복되지 않음
