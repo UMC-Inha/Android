@@ -1,12 +1,12 @@
 package com.example.chapter01.shared
 
 import android.content.Context
-import android.view.View.inflate
+import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.compose.ui.unit.Constraints
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.chapter01.R
+import com.example.chapter01.databinding.ItemMoodBinding
 
 //    1. Application 환경에 대한 정보 제공
 //  Context는 애플리케이션 환경에 대한 정보를 제공합니다. 이를 통해 애플리케이션의 리소스, 데이터베이스, 파일 시스템 접근 등과 같은 기능에 접근할 수 있습니다.
@@ -25,23 +25,15 @@ class EmotionView constructor(
 ): ConstraintLayout(context){
     private var emotionText: String = text
     private var emotionSvgPath: Int = svgPath
-    private val textView: TextView
-    private val imageView: ImageView
+    private val binding: ItemMoodBinding
     init {
 //        xml 레이아웃을 뷰 객체로 변환
-        inflate(context, R.layout.mood_item, this)
-         textView = findViewById(R.id.mood_text)
-         imageView = findViewById(R.id.mood_icon)
+        binding = ItemMoodBinding.inflate(LayoutInflater.from(context), this, true)
         initView()
     }
     private fun initView(){
-        setEmotionText(emotionText)
-        setEmotionImage(emotionSvgPath)
-    }
-    private fun setEmotionText(text: String) {
-        textView.text = text
-    }
-    private fun setEmotionImage(resourceId: Int) {
-        imageView.setImageResource(resourceId)
+        binding.moodText.text=emotionText
+        binding.moodIcon.setImageResource(emotionSvgPath)
+
     }
 }

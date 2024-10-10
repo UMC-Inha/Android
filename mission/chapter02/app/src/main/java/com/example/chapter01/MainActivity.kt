@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.navigation_home -> {
                     replaceFragment(PostFragment(),1,type)
-                    startActivity(intent)
                     true
                 }
                 R.id.navigation_social -> {
@@ -59,14 +58,8 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-//        내비게이션 방향 설정
-
-        fun hideBottomNavigation(state: Boolean) {
-            if (state) binding.bottomNavigation.visibility = View.GONE else binding.bottomNavigation.visibility = View.VISIBLE
-        }
     }
     private fun replaceFragment(fragment: Fragment,fragmentType:Int,presentType:Int) {
-        type=fragmentType
         var enterAnim:Int
         var exitAnim:Int
         if (fragmentType>presentType){
@@ -81,12 +74,14 @@ class MainActivity : AppCompatActivity() {
             enterAnim = R.anim.slide_in_left
             exitAnim = R.anim.slide_out_right
         }
+        type=fragmentType
 
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(
                 enterAnim ,exitAnim
             )
             .replace(binding.fragmentContainer.id, fragment)
+            .addToBackStack(null)
             .commit()
     }
 }
