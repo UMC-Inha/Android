@@ -1,0 +1,39 @@
+- ListView
+    - ListView란 무엇일까요?
+        - 스크롤 가능한 목록을 표시하는 위젯으로, 여러 아이템을 나열하여 보여줌
+    - ListView에 들어갈 아이템들은 어떻게 저장해야 할까요?
+        - ArrayList 등을 사용하여 데이터 소스를 구성
+    - ListView는 어떤 구성요소로 되어있을까요?
+        - ListView, Adapter, 데이터소스. Adapter는 데이터와 리스트뷰를 연결해주는 역할
+- Adapter
+    - Android에서 사용되는 Adapter란 무엇일까요?
+        - 데이터를 리스트뷰나 리사이클러뷰 등에 바인딩하여 화면에 표시하는 역할을 함
+    - Adapter는 주로 어떤 역할을 할까요?
+        - 데이터를 적절한 형태로 변환해 UI에 표시되도록 연갤
+    - ListView의 Adapter는 어떤 구성 요소를 가지고 있을까요?
+        - 데이터소스, `getView()` 메소드, 뷰 홀더 패턴 ..
+- RecyclerView
+    - RecyclerView란 무엇일까요?
+        - 더 많은 유연성과 성능을 제공하는 리스트 컴포넌트로, 화면에 보이지 않는 아이템을 재사용하여 메모리 사용을 줄
+    - RecyclerView와 ListView는 어떤 차이점이 있을까요?
+        - `ViewHolder` 패턴이 내장되어 있어 더 효율적이며, 다양한 레이아웃을 설정하기 쉬운 점이 특징
+    - RecyclerView Adapter는 어떤 구성 요소를 가지고 있을까요?
+        - `onCreateViewHolder()`, `onBindViewHolder()`, `getItemCount()` 메서드가 포함
+    - RecyclerView를 설정할 때 주의해야 하는 점은 무엇이 있을까요?
+        - 스크롤 성능을 최적화하기 위해 `ViewHolder` 패턴을 반드시 사용함
+    - ViewPager2 에서 사용했던 FragmentStateAdapter와 RecyclerView.Adapter는 어떤 차이가 있을까요?
+        - `FragmentStateAdapter`는 주로 `ViewPager2`에서 프래그먼트를 관리하는 데 사용되고, `RecyclerView.Adapter`는 데이터를 뷰 홀더와 연결해 목록을 구성하는 데 최적화되어 있음
+- foreground service
+    - foreground service란 무엇일까요?
+        - 사용자에게 지속적으로 알림을 표시하며 실행되는 서비스로, 사용자가 알고 있는 동안 앱이 중요한 작업을 수행할 때 사용
+    - foreground service를 사용하는 이유는 무엇일까요?
+        - 음악 재생, 위치 추적, 파일 다운로드 등 사용자가 인식해야 하는 장기 작업에 적합
+    - foreground service 사용 시 주의사항은 무엇이 있을까요?
+        - 반드시 `Notification`을 통해 사용자에게 진행 중임을 알리고, 배터리 소모와 프라이버시 문제를 고려해야함
+- background service
+    - background service란 무엇일까요?
+        - 사용자와 직접 상호작용하지 않고, 백그라운드에서 실행되는 서비스
+    - background service를 사용하는 이유는 무엇일까요?
+        - 앱이 전면에 없거나, 사용자가 기기를 사용하지 않을 때도 **백그라운드에서 지속적인 작업이 필요한 경우** 사용
+    - background service 사용 시 주의사항은 무엇이 있을까요?
+        - 백그라운드 작업이 많아지면 배터리 소모가 커지므로 효율적인 작업 관리가 필요함

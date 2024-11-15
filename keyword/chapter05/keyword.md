@@ -1,0 +1,31 @@
+- Lifecycle
+    - Lifecycle이란 무엇일까요?
+        - 안드로이드 컴포넌트 (액티비티, 프래그먼트 등)의 생성부터 종료까지 상태 변화를 관리하는 시스템
+    - Lifecycle은 왜 등장하게 되었을까요?
+        - 액티비티나 프래그먼트는 사용자 상호작용, 메모리 관리 등 시스템에서 자동으로 상태가 변경되기 때문에, 이를 안전하게 제어할 수 있도록 Lifecycle 관리가 필요함
+- Activity의 Lifecycle
+    - Activity의 대표적인 Lifecycle은 어떤게 있을까요?
+        - onCreate(), onStart(), onResume(), onPause(), onStop(), onDestroy()
+    - 각 Lifecycle을 활용하는 실제 예시들은 어떤게 있을까요?
+        - onCreate() : 화면 요소 초기화, 데이터 바인딩 등
+        - onResume(): 카메라 같이 사용자 상호작용이 필요한 리소스 사용
+        - onPause() : 데이터 저장, 애니메이션 정지 등 앱이 중단되었을 때 필요없는 작업 중지
+        - onStop() : 네트워크 연결 해제, 데이터베이스 닫기 등
+- MediaPlayer
+    - MediaPlayer는 언제 사용할까요?
+        - 오디오 및 비디오 재생을 앱애서 구현할때
+    - MediaPlayer에서 사용할 수 있는 함수들은 무엇이 있으며, 어떤 기능을할까요? (ex create, pause, …)
+        - create() : MediaPlayer 인스턴스를 생성, 리소스 로드
+        - start() : 오디오.비디오 재생
+        - pause() : 일시중지
+        - stop() : 재생을 완전히 중단
+        - reset() : MediaPlayer를 초기 상태로 되돌림
+        - release() : 리소스를 해제하여 메모리 누수 방지
+- SharedPreferences
+    - SharedPreference란 무엇일까요?
+        - 간단한 데이터를 앱 내에 key-value 형태로 저장할 수 있는 저장소
+    - SharedPreference는 어떤 방식으로 값을 저장할까요?
+        - 앱의 내부 스토리지에 xml 파일 형태로 저장됨
+    - JSON과 GSON이란 무엇일까요?
+        - JSON : 데이터를 경량화하여 구조화된 형식으로 표현하는 포맷. 텍스트 기반이라 가독성이 높고, 플랫폼 간 데이터 전송에 많이 사용됨.
+        - GSON : 구글에서 제공하는 라이브러리로, JSON 데이터를 Java 객체로 변환하거나 Java 객체를 JSON으로 변환할 때 사용
